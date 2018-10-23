@@ -1,0 +1,50 @@
+{
+  "name": "tsnode-starter",
+  "version": "1.0.0",
+  "description": "A Node TS + Express app starter.",
+  "author": "Guilherme Prezzi <guilhermeprezzi1997@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "server:serve": "./node_modules/.bin/nodemon -e ts --exec npm run server:start",
+    "server:start": "./node_modules/.bin/ts-node --project ./tsconfig.json ./src/index.ts",
+    "server:test": "./node_modules/.bin/jest --config ./jest.config.js --detectOpenHandles --forceExit",
+    "server:lint": "./node_modules/.bin/tslint -c ./tslint.json -p ./tsconfig.json 'src/**/*.ts'",
+    "server:lint:fix": "./node_modules/.bin/tslint -c ./tslint.json -p ./tsconfig.json 'src/**/*.ts' --fix",
+    "test": "npm run server:test",
+    "lint": "npm run server:lint",
+    "lint:fix": "npm run server:lint:fix",
+    "docs": "./node_modules/.bin/typedoc --options ./scripts/typedoc.json ./src/",
+    "docs:open": "./node_modules/.bin/typedoc --options ./scripts/typedoc.json ./src/ && live-server ./docs/server-api",
+    "serve": "npm run server:serve",
+    "start": "npm run server:start"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "debug": "^3.1.0",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.2",
+    "injection-js": "^2.2.1",
+    "lodash": "~4.17.4",
+    "mongoose": "~5.1.7",
+    "morgan": "^1.9.0",
+    "reflect-metadata": "^0.1.12"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/jest": "^23.3.0",
+    "@types/mongoose": "^5.2.2",
+    "@types/node": "~8.9.4",
+    "@types/supertest": "^2.0.5",
+    "faker": "^4.1.0",
+    "jest": "^23.0.0",
+    "nodemon": "^1.17.3",
+    "supertest": "^3.0.0",
+    "ts-jest": "^23.0.1",
+    "ts-node": "~5.0.1",
+    "tslint": "~5.9.1",
+    "typedoc": "^0.11.1",
+    "typescript": "~2.7.2"
+  }
+}

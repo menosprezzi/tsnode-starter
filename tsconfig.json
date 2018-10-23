@@ -1,0 +1,20 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "lib": ["es2015", "es2017"],
+    "baseUrl": ".",
+    "noImplicitAny": false,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  }
+}
+
+

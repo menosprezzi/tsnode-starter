@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    environment:
+      MONGODB_HOST: mongo
+      MONGODB_PORT: 27017
+      MONGODB_USER: dbuser
+      MONGODB_PWD: dbuser
+      MONGODB_NAME: app
+    ports:
+      - 8080:8080
+      - 8081:8081
+
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo-volume:/data/db
+
+volumes:
+  mongo-volume:
