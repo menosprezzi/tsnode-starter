@@ -15,8 +15,4 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG,
-  deploy:
-    commands:
-      - echo $AWS_EC2_SSH_KEY >> sshkey.pem
-      - ssh -i "sshkey.pem" $AWS_EC2_USER@$AWS_EC2_ADDRESS 'bash -s' < ./scripts/$AWS_EC2_CD_STRATEGY
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
