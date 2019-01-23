@@ -25,4 +25,4 @@ phases:
       # To update a running service in a Swarm node:
       # - docker service update --image $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG $SERVICE_NAME
       # To update a running service from a Compose:
-      - docker-compose up -d --no-deps --build $SERVICE_NAME
+      - docker-compose up -p $COMPOSE_PROJECT_NAME -d --no-deps --build $SERVICE_NAME
