@@ -20,11 +20,9 @@ phases:
     commands:
       - export DOCKER_HOST=tcp://$AWS_DOCKER_HOST:2375
       - docker ps
-      # Login the remote node
+      # Authenticate the remote node in AWS ECR
       - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
-      # To update an image only:
-      # - docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
       # To update a running service in a Swarm node:
       # - docker service update --image $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG $SERVICE_NAME
       # To update a running service from a Compose:
-      - docker-compose -f $DOCKER_COMPOSE_PATH up -d --no-deps --build $SERVICE_NAME
+      - docker-compose up -d --no-deps --build $SERVICE_NAME
