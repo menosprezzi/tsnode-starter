@@ -6,13 +6,11 @@ import { AppRouter } from '../router';
 import { TopicsController } from '../modules/topics/topics.controller';
 import { AppConfig } from '../config';
 
-export function getApp(): App {
-  const injector = ReflectiveInjector.resolveAndCreate([
-    App,
-    AppConfig,
-    AppRouter,
-    TopicsController,
-  ]);
+const injector = ReflectiveInjector.resolveAndCreate([
+  App,
+  AppConfig,
+  AppRouter,
+  TopicsController,
+]);
 
-  return injector.get(App);
-}
+export const app = injector.get(App);
